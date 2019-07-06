@@ -1,3 +1,0 @@
-﻿  BallClass.cpp
-C:\Users\jamie\Documents\C++ things\SP Pong\SP_Pong\BallClass.cpp(6,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  SP_Pong.vcxproj -> C:\Users\jamie\Documents\C++ things\SP Pong\x64\Debug\SP_Pong.exe
