@@ -26,10 +26,16 @@ int main()
 	char Direction; //Used to save what direction the player wants to move. Either u or d
 	char key; //Used to save what keyboard key the player pressed
 	//Variables used to retrive information from the paddles object to be sent to the ball object. PadL = left paddle / PadR = right paddle
-	int YValOfPadL = 0;
-	int YValOfPadR = 0;
-	int XValOfPadL = 0;
-	int XValOfPadR = 0;
+	int PadY = 0;
+	int PadXL = 0;
+	int PadXR = 0;
+	int PadUpSize = 0;
+	int PadDownSize = 0;
+
+	PadXL = leftobj.GetXPos();
+	PadXR = rightobj.GetXPos();
+	PadUpSize = leftobj.GetUpSize();
+	PadDownSize = leftobj.GetDownSize();
 
 	while (menuobj.GetIsGameRunning() == true && ballobj.IsBallAlive() == true) //Main game loop
 	{
@@ -51,13 +57,11 @@ int main()
 					break;
 			}
 			//Gets position of left and right paddle. This gets sent to the ball class
-			YValOfPadL = leftobj.GetYPos();
-			YValOfPadR = rightobj.GetYPos();
-			XValOfPadL = leftobj.GetXPos();
-			XValOfPadR = rightobj.GetXPos();
+			PadY = leftobj.GetYPos();
+			
 		}
 		//Moves the ball
-		ballobj.MoveBall(YValOfPadL,YValOfPadR,XValOfPadL,XValOfPadR);
+		ballobj.MoveBall(PadY,PadXL,PadXR,PadUpSize,PadDownSize);
 		//Increase score if ball hits a paddle
 		if (ballobj.ShouldScoreIncrease() == true) 
 		{

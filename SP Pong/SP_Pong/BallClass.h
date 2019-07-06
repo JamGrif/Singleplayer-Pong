@@ -6,7 +6,7 @@ class BallClass : public DataReadClass
 {
 public:
 	BallClass();
-	void MoveBall(int LeftY,int RightY,int LeftX,int RightX);
+	void MoveBall(int PadY, int LeftX, int RightX, int UpSize, int DownSize);
 	bool ShouldScoreIncrease();
 	bool IsBallAlive();
 	

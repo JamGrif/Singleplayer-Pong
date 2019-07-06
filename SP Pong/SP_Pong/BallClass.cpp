@@ -41,7 +41,7 @@ BallClass::BallClass()
 }
 
 
-void BallClass::MoveBall(int LeftY, int RightY, int LeftX, int RightX)
+void BallClass::MoveBall(int PadY, int LeftX, int RightX, int UpSize, int DownSize)
 {
 	if (m_XPos == 1 || m_XPos == 49) //Check if ball has hit the red wall behind the paddles
 	{
@@ -64,12 +64,12 @@ void BallClass::MoveBall(int LeftY, int RightY, int LeftX, int RightX)
 		}	
 		m_YNext = m_YPos + m_YDirection;
 
-		if ((m_XPos == LeftX+1) && (m_YPos == LeftY || m_YPos == LeftY+1 || m_YPos == LeftY-1)) //If ball is touching the left paddle
+		if ((m_XPos == LeftX+1) && (m_YPos < PadY+DownSize+1 && m_YPos > PadY-UpSize-1)) //If ball is touching the left paddle
 		{
 			m_XDirection = Right; //Ball starts moving right
 			m_ScoreIncrease = true;
 		}
-		else if ((m_XPos == RightX-1) && (m_YPos == RightY || m_YPos == RightY + 1 || m_YPos == RightY - 1)) //If ball is touching the right paddle
+		else if ((m_XPos == RightX-1) && (m_YPos < PadY+DownSize+1 && m_YPos > PadY-UpSize-1)) //If ball is touching the right paddle
 		{
 			m_XDirection = Left; //Ball starts moving left
 			m_ScoreIncrease = true;

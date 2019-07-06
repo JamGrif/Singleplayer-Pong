@@ -105,6 +105,16 @@ int PaddleClass::GetXPos()
 	return m_PaddleX;
 }
 
+int PaddleClass::GetUpSize()
+{
+	return m_UpSize;
+}
+
+int PaddleClass::GetDownSize()
+{
+	return m_DownSize;
+}
+
 
 
 

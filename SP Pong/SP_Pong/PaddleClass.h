@@ -9,6 +9,8 @@ public:
 									 //It then redraws the paddle in its new position while removing the old version of the paddle.
 	int GetYPos();
 	int GetXPos();
+	int GetUpSize();
+	int GetDownSize();
 
 	
 private:
