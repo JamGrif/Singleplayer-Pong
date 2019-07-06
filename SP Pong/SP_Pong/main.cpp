@@ -31,7 +31,6 @@ int main()
 	int XValOfPadL = 0;
 	int XValOfPadR = 0;
 
-	//system("pause");
 	while (menuobj.GetIsGameRunning() == true && ballobj.IsBallAlive() == true) //Main game loop
 	{
 		//If keyboard input is detected
