@@ -38,5 +38,11 @@ private:
 	const char m_Block = (char)178;
 
 	bool m_BallAlive = false;
+
+	//Court Dimensions
+	static const int m_MinX;
+	static const int m_MaxX;
+	static const int m_MinY;
+	static const int m_MaxY;
 };
 
