@@ -20,7 +20,7 @@ int main()
 	courtobj.DrawCourt();
 	PaddleClass leftobj(4,13);
 	PaddleClass rightobj(45,13);
-	//BallClass ballobj;
+	BallClass ballobj;
 	ScoreClass scoreobj;
 	
 	char Direction; //Used to save what direction the player wants to move. Either u or d
@@ -32,7 +32,7 @@ int main()
 	int XValOfPadR = 0;
 
 	//system("pause");
-	while (menuobj.GetIsGameRunning() == true /*&& ballobj.IsBallAlive() == true*/) //Main game loop
+	while (menuobj.GetIsGameRunning() == true && ballobj.IsBallAlive() == true) //Main game loop
 	{
 		//If keyboard input is detected
 		if (_kbhit()) 
@@ -58,12 +58,12 @@ int main()
 			XValOfPadR = rightobj.GetXPos();
 		}
 		//Moves the ball
-		//ballobj.MoveBall(YValOfPadL,YValOfPadR,XValOfPadL,XValOfPadR);
+		ballobj.MoveBall(YValOfPadL,YValOfPadR,XValOfPadL,XValOfPadR);
 		//Increase score if ball hits a paddle
-		//if (ballobj.ShouldScoreIncrease() == true) 
-		//{
-		//	scoreobj.IncreaseScore();
-		//}
+		if (ballobj.ShouldScoreIncrease() == true) 
+		{
+			scoreobj.IncreaseScore();
+		}
 		//Prints the score
 		scoreobj.PrintScore();
 	}
