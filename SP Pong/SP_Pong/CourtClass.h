@@ -13,10 +13,10 @@ private:
 	int m_PosX = 0;
 	int m_PosY = 0;
 	//Maximum dimensions of the court
-	static const int m_MinX = 0;
-	static const int m_MaxX = 51;
-	static const int m_MinY = 0;
-	static const int m_MaxY = 26;
+	const int m_MinX = 0;
+	const int m_MaxX = 51;
+	const int m_MinY = 0;
+	const int m_MaxY = 26;
 	
 	COORD coord = { 0,0 };
 };

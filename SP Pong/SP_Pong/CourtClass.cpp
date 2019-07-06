@@ -10,7 +10,7 @@ void CourtClass::DrawCourt()
 		coord.X = m_PosX;
 		coord.Y = m_PosY;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-		if (m_PosX == 0 || m_PosX == m_MaxX-1 || m_PosY == 0 || m_PosY == m_MaxY - 1) {
+		if (m_PosX == m_MinX || m_PosX == m_MaxX-1 || m_PosY == m_MinY || m_PosY == m_MaxY - 1) {
 			//Left/Right wall
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), m_CourtSideColour); //Red
 			cout << m_Block;

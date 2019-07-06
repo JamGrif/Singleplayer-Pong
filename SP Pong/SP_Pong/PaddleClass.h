@@ -29,9 +29,9 @@ private:
 	const char m_Block = (char)178;
 
 	//Court Dimensions
-	static const int m_MinX;
-	static const int m_MaxX;
-	static const int m_MinY;
-	static const int m_MaxY;
+	//static const int m_MinX;
+	//static const int m_MaxX;
+	//static const int m_MinY;
+	//static const int m_MaxY;
 };
 
