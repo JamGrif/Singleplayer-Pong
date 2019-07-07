@@ -37,14 +37,16 @@ int main()
 	PadUpSize = leftobj->GetUpSize();
 	PadDownSize = leftobj->GetDownSize();
 
-	while (menuobj.GetIsGameRunning() == true && ballobj->IsBallAlive() == true) //Main game loop
+	while (menuobj.GetIsGameRunning() == true) //Main game loop
 	{
-		//If keyboard input is detected
-		if (_kbhit()) 
+		while (ballobj->IsBallAlive() == true)
 		{
-			key = _getch();
-			switch (key) 
+			//If keyboard input is detected
+			if (_kbhit())
 			{
+				key = _getch();
+				switch (key)
+				{
 				case 72: //Up arrow pressed
 					Direction = 'u';
 					leftobj->MovePaddle(Direction); //Moves left paddle
@@ -55,30 +57,34 @@ int main()
 					leftobj->MovePaddle(Direction); //Moves left paddle
 					rightobj->MovePaddle(Direction); //Moves right paddle
 					break;
+				}
+				//Gets position of left and right paddle. This gets sent to the ball class
+				PadY = leftobj->GetYPos();
+	
 			}
-			//Gets position of left and right paddle. This gets sent to the ball class
-			PadY = leftobj->GetYPos();
-			
+			//Moves the ball
+			ballobj->MoveBall(PadY, PadXL, PadXR, PadUpSize, PadDownSize);
+			//Increase score if ball hits a paddle
+			if (ballobj->ShouldScoreIncrease() == true)
+			{
+				scoreobj->IncreaseScore();
+			}
+			//Prints the score
+			scoreobj->PrintScore();
 		}
-		//Moves the ball
-		ballobj->MoveBall(PadY,PadXL,PadXR,PadUpSize,PadDownSize);
-		//Increase score if ball hits a paddle
-		if (ballobj->ShouldScoreIncrease() == true)
-		{
-			scoreobj->IncreaseScore();
-		}
-		//Prints the score
-		scoreobj->PrintScore();
+		//Game ends here. Game objects are deleted
+		
+		//Asked if want to replay or exit game
+		menuobj.EndGameAsk(scoreobj->GetScore());
+		
 	}
-	system("CLS");
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7); //Change text colour back to the default white
-	cout << "You have lost!" << endl;
-	cout << "Your final score was " << scoreobj->GetScore() << "!" << endl;
 	delete courtobj;
 	delete leftobj;
 	delete rightobj;
-	delete scoreobj;
 	delete ballobj;
-	system("pause");
+	delete scoreobj;
+
+	
+	//system("pause");
 	return 0;
 }

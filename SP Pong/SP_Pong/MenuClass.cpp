@@ -9,10 +9,24 @@ void MenuClass::Ask()
 	string Menuchoice = "";
 	cout << "Would you like to (P)lay the game, view (I)nstructions or (E)xit the game?" << endl;
 	cin >> Menuchoice;
-	ChoiceFunction(Menuchoice);
+	MChoice(Menuchoice);
 }
 
-void MenuClass::ChoiceFunction(string MenuChoice)
+void MenuClass::EndGameAsk(int score)
+{
+	system("CLS");
+	string EndChoice = "";
+	m_scorevalue = score;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7); //Change text colour back to the default white
+	cout << "You have lost!" << endl;
+	cout << "Your final score was " << score << "!" << endl << endl;
+	cout << "Do you want to (R)eplay or (E)xit the game?" << endl;
+	cin >> EndChoice;
+	EChoice(EndChoice);
+
+}
+
+void MenuClass::MChoice(string MenuChoice)
 {
 	if (MenuChoice == "P" || MenuChoice == "p") //Starts the while loop in main essentially starting the game
 	{
@@ -37,6 +51,22 @@ void MenuClass::ChoiceFunction(string MenuChoice)
 	else //If user doesnt input a valid key then the program reasks what they want to do
 	{
 		Ask();
+	}
+}
+
+void MenuClass::EChoice(string EndChoice)
+{
+	if (EndChoice == "R" || EndChoice == "r") //Replays the game
+	{
+		system("CLS");
+	}
+	else if (EndChoice == "E" || EndChoice == "e") //Makes program exit the main game loop.
+	{
+		m_IsGameRunning = false;
+	}
+	else //If user doesnt input a valid key then the program reasks what they want to do
+	{
+		EndGameAsk(m_scorevalue);
 	}
 }
 

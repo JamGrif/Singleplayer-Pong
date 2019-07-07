@@ -8,8 +8,10 @@ class MenuClass
 public:
 
 	void Ask(); //Ask the user if they want to play, view instructions or exit
+	void EndGameAsk(int score); //Appears when the player loses the game.
 
-	void ChoiceFunction (string MenuChoice); //Takes the users input and makes an apprioate action to input
+	void MChoice (string MenuChoice); //Takes the users input and makes an apprioate action to input
+	void EChoice(string EndChoice);
 
 	bool GetIsGameRunning(); //Returns if the game is running or not
 	void FlipGameState(); //Changes IsGameRunning to false if true or vice versa
@@ -18,6 +20,8 @@ public:
 
 private:
 	bool m_IsGameRunning = false;
+
+	int m_scorevalue = 0;
 };
 
 

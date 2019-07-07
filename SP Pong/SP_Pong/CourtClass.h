@@ -5,7 +5,7 @@ class CourtClass : public DataReadClass
 {
 public:
 	void DrawCourt(); //Draws the court before game loop
-	~CourtClass();
+	
 
 private:
 	//What the court will be made out of	
