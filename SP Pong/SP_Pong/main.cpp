@@ -16,12 +16,12 @@ int main()
 	menuobj.Ask();
 	
 	//Creating the objects and drawes them if needed
-	CourtClass courtobj;
-	courtobj.DrawCourt();
-	PaddleClass leftobj(4,13);
-	PaddleClass rightobj(45,13);
-	BallClass ballobj;
-	ScoreClass scoreobj;
+	CourtClass* courtobj = new CourtClass;
+	courtobj->DrawCourt();
+	PaddleClass* leftobj = new PaddleClass(4, 13);
+	PaddleClass* rightobj = new PaddleClass(45, 13);
+	BallClass* ballobj = new BallClass;
+	ScoreClass* scoreobj = new ScoreClass;
 	
 	char Direction; //Used to save what direction the player wants to move. Either u or d
 	char key; //Used to save what keyboard key the player pressed
@@ -32,12 +32,12 @@ int main()
 	int PadUpSize = 0;
 	int PadDownSize = 0;
 
-	PadXL = leftobj.GetXPos();
-	PadXR = rightobj.GetXPos();
-	PadUpSize = leftobj.GetUpSize();
-	PadDownSize = leftobj.GetDownSize();
+	PadXL = leftobj->GetXPos();
+	PadXR = rightobj->GetXPos();
+	PadUpSize = leftobj->GetUpSize();
+	PadDownSize = leftobj->GetDownSize();
 
-	while (menuobj.GetIsGameRunning() == true && ballobj.IsBallAlive() == true) //Main game loop
+	while (menuobj.GetIsGameRunning() == true && ballobj->IsBallAlive() == true) //Main game loop
 	{
 		//If keyboard input is detected
 		if (_kbhit()) 
@@ -47,32 +47,38 @@ int main()
 			{
 				case 72: //Up arrow pressed
 					Direction = 'u';
-					leftobj.MovePaddle(Direction); //Moves left paddle
-					rightobj.MovePaddle(Direction); //Moves right paddle
+					leftobj->MovePaddle(Direction); //Moves left paddle
+					rightobj->MovePaddle(Direction); //Moves right paddle
 					break;
 				case 80: //Down arrow pressed
 					Direction = 'd';
-					leftobj.MovePaddle(Direction); //Moves left paddle
-					rightobj.MovePaddle(Direction); //Moves right paddle
+					leftobj->MovePaddle(Direction); //Moves left paddle
+					rightobj->MovePaddle(Direction); //Moves right paddle
 					break;
 			}
 			//Gets position of left and right paddle. This gets sent to the ball class
-			PadY = leftobj.GetYPos();
+			PadY = leftobj->GetYPos();
 			
 		}
 		//Moves the ball
-		ballobj.MoveBall(PadY,PadXL,PadXR,PadUpSize,PadDownSize);
+		ballobj->MoveBall(PadY,PadXL,PadXR,PadUpSize,PadDownSize);
 		//Increase score if ball hits a paddle
-		if (ballobj.ShouldScoreIncrease() == true) 
+		if (ballobj->ShouldScoreIncrease() == true)
 		{
-			scoreobj.IncreaseScore();
+			scoreobj->IncreaseScore();
 		}
 		//Prints the score
-		scoreobj.PrintScore();
+		scoreobj->PrintScore();
 	}
 	system("CLS");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7); //Change text colour back to the default white
 	cout << "You have lost!" << endl;
-	cout << "Your final score was " << scoreobj.GetScore() << "!" << endl;
+	cout << "Your final score was " << scoreobj->GetScore() << "!" << endl;
+	delete courtobj;
+	delete leftobj;
+	delete rightobj;
+	delete scoreobj;
+	delete ballobj;
+	system("pause");
 	return 0;
 }

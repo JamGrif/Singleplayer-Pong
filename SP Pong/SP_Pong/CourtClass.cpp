@@ -32,3 +32,8 @@ void CourtClass::DrawCourt()
 		}
 	}
 }
+
+CourtClass::~CourtClass()
+{
+	cout << "court class destroyed!" << endl;
+}
