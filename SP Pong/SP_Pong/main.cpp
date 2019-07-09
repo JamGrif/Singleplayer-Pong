@@ -60,7 +60,6 @@ int main()
 				}
 				//Gets position of left and right paddle. This gets sent to the ball class
 				PadY = leftobj->GetYPos();
-	
 			}
 			//Moves the ball
 			ballobj->MoveBall(PadY, PadXL, PadXR, PadUpSize, PadDownSize);
@@ -84,7 +83,6 @@ int main()
 	delete ballobj;
 	delete scoreobj;
 
-	
 	//system("pause");
 	return 0;
 }

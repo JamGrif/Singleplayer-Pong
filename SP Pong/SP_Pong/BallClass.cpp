@@ -13,25 +13,11 @@ BallClass::BallClass()
 
 	//Random numbers generator to randomize the balls direction when it is first spawned. Can only pick either 1 or 2.
 	m_RandomNumber = (1 + (rand() % 2));
-	if (m_RandomNumber == 1) 
-	{
-		m_XDirection = Right;
-	}
-	else 
-	{
-		m_XDirection = Left;
-	}
+	m_XDirection = m_RandomNumber == 1 ? Right : Left;
+
 	m_RandomNumber = (1 + (rand() % 2));
-	if (m_RandomNumber == 1)
-	{
-		m_YDirection = Down;
-	}
-	else
-	{
-		m_YDirection = Up;
-	}
-
-
+	m_YDirection = m_RandomNumber == 1 ? Down : Up;
+	
 	//Draws the ball in it starting position
 	coord.X = m_XPos;
 	coord.Y = m_YPos;
@@ -105,6 +91,7 @@ bool BallClass::ShouldScoreIncrease()
 		return true;
 	}
 	return false;
+	
 }
 
 bool BallClass::IsBallAlive()

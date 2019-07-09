@@ -51,7 +51,7 @@ void PaddleClass::MovePaddle(char Direction)
 		m_NextY = m_PaddleY + 1;
 	}
 	
-	if (m_PaddleY != m_NextY) //Runs if the paddles next position is not the same as the current position
+	if (m_PaddleY != m_NextY) //Runs if the paddles next position is not the same as the current position indicating the paddle is trying to move outside the court area
 	{
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), m_PaddleColour);
 		//Centre block

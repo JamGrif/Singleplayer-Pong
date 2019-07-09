@@ -77,15 +77,7 @@ bool MenuClass::GetIsGameRunning()
 
 void MenuClass::FlipGameState()
 {
-	if (m_IsGameRunning == true)
-	{
-		
-		m_IsGameRunning = false;
-	}
-	else
-	{
-		m_IsGameRunning = true;
-	}
+	m_IsGameRunning == true ? false : true;
 }
 
 void MenuClass::ShowConsoleCursor(bool ShowCursor) //Used to hide the cursor during play
