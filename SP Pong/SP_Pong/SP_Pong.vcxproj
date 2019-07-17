@@ -126,6 +126,7 @@
     <ClCompile Include="BallClass.cpp" />
     <ClCompile Include="CourtClass.cpp" />
     <ClCompile Include="DataReadClass.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuClass.cpp" />
     <ClCompile Include="PaddleClass.cpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="BallClass.h" />
     <ClInclude Include="CourtClass.h" />
     <ClInclude Include="DataReadClass.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="MenuClass.h" />
     <ClInclude Include="PaddleClass.h" />
     <ClInclude Include="ScoreClass.h" />
