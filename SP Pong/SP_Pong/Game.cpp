@@ -1,6 +1,10 @@
 #include "Game.h"
 
-void Game::Start()
+void Game::Initialize()
+{
+}
+
+void Game::Run()
 {
 	MenuClass menuobj;
 	menuobj.ShowConsoleCursor(false);

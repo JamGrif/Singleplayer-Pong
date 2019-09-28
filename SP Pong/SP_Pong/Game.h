@@ -12,7 +12,8 @@ using namespace std;
 class Game
 {
 public:
-	void Start();
+	void Initialize();
+	void Run();
 
 private:
 	char Direction; //Used to save what direction the player wants to move. Either u or d
