@@ -1,4 +1,4 @@
 Score(row,col,colour) 14 27 6
-Paddle(size,colour) 4 5
+Paddle(size,colour) 5 5
 Ball(colour) 2
 Court(back,side) 7 4
